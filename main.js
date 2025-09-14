@@ -57,6 +57,7 @@ function nextQuestion() {
         question.textContent = questions[currentIndex].question;
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].textContent = questions[currentIndex].options[i];
+            buttons[i].disabled = false;
 
         } 
     } else {
@@ -70,10 +71,12 @@ let userScore = 0;
             if (i === questions[currentIndex].answer) {
                 userScore++;
                 score.textContent = userScore + "/5";
-            } else {
-                
             }
-        })
+            for (let j = 0; j < buttons.length; j++) {
+                buttons[j].disabled = true;
+            }
+        });
+
     }
 
 
