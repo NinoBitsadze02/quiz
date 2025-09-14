@@ -12,32 +12,32 @@ const questions = [
     {
         question: "What is the capital of France?",
         options: ["Paris", "Rome", "Tbilisi", "London"],
-        answer: "Paris",
+        answer: 0,
 
     },
 
     {
         question: "Whats 2+2?",
         options: ["3", "6", "4", "7"],
-        answer: "4",
+        answer: 2,
     },
 
     {
         question: "Which fruit is red?",
         options: ["Pear", "Orange", "Lemons", "Apple"],
-        answer: "Apple",
+        answer: 3,
     },
 
     {
         question: "Which is NOT a type of vehicle?",
         options: ["Car", "Train", "Cup", "Plane" ],
-        answer: "Cup",
+        answer: 2,
     },
 
     {
         question: "How do get you out of the house?",
         options: ["Window", "Door", "Chandelier", "Cupboard"],
-        answer: "Door",
+        answer: 1,
     },
 ];
 
@@ -52,7 +52,7 @@ for (let i = 0; i < buttons.length; i++) {
 next.addEventListener("click", nextQuestion);
 
 function nextQuestion() {
-    if (currentIndex < questions.length) {
+    if (currentIndex < questions.length - 1) {
         currentIndex++;
         question.textContent = questions[currentIndex].question;
         for (let i = 0; i < buttons.length; i++) {
@@ -63,6 +63,18 @@ function nextQuestion() {
         question.textContent = "Quiz finished";
     }
 }
+let userScore = 0;
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", () => {
+            if (i === questions[currentIndex].answer) {
+                userScore++;
+                score.textContent = userScore + "/5";
+            } else {
+                
+            }
+        })
+    }
 
 
 
