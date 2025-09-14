@@ -44,7 +44,28 @@ const questions = [
 let currentIndex = 0;
 question.textContent = questions[currentIndex].question;
 
-let buttons = [answer1. answer2, answer3, answer4];
+let buttons = [answer1, answer2, answer3, answer4];
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].textContent = questions[currentIndex].options[i];
+}
+
+next.addEventListener("click", nextQuestion);
+
+function nextQuestion() {
+    if (currentIndex < questions.length) {
+        currentIndex++;
+        question.textContent = questions[currentIndex].question;
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].textContent = questions[currentIndex].options[i];
+
+        } 
+    } else {
+        question.textContent = "Quiz finished";
+    }
+}
+
+
+
 
 
 
